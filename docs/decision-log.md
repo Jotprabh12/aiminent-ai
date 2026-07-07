@@ -1,0 +1,115 @@
+# Decision Log
+
+Architecturally-significant decisions and every deliberate deviation from the
+spec. The spec instructs: _follow modern best practice over the documentation
+where they conflict, and document the reason_ — that's what this file is for.
+
+Format: **Decision · Context · Choice · Rationale · Status**.
+
+---
+
+## D1 — Next.js 16 (spec pins 15)
+
+- **Context:** The PRD lists Next.js 15 + React 19 as "non-negotiable". As of
+  the build date, Next.js 16 is the current stable release.
+- **Choice:** Next.js 16 + React 19.
+- **Rationale:** Best-practice-over-docs rule; newest stable APIs and the
+  longest support window. React 19 (as specified) is unchanged. Confirmed with
+  the project owner.
+- **Status:** Accepted.
+
+## D2 — Tailwind CSS v4, CSS-first (spec references `tailwind.config.ts`)
+
+- **Context:** Appendix A lists `tailwind.config.ts` and `styles/tokens.css`.
+  Tailwind v4 (the current shadcn/ui default) is CSS-first: theme is configured
+  in CSS via `@theme`, with no JS config file.
+- **Choice:** Tailwind v4. No `tailwind.config.ts`. Tokens in
+  `styles/tokens.css`, bridged in `app/globals.css`.
+- **Rationale:** Matches the docs' actual intent ("CSS variables consumed by
+  Tailwind"), aligns with shadcn's current setup, and is less config to
+  maintain. Confirmed with the project owner.
+- **Status:** Accepted.
+
+## D3 — pnpm as package manager
+
+- **Choice:** pnpm (via Corepack), pinned with `packageManager` in
+  `package.json`.
+- **Rationale:** Fast, strict, disk-efficient; the Vercel-standard choice for a
+  long-lived codebase. Confirmed with the project owner.
+- **Status:** Accepted.
+
+## D4 — Provisional color palette
+
+- **Context:** The PRD fixes only the background (`#0B0D12`) and the direction
+  ("deep electric blue" + "purple/violet accent", plus cyan/indigo gradients).
+  The full palette is unspecified.
+- **Choice:** A complete provisional dark palette (electric blue `#4C6FFF`,
+  violet `#8B5CF6`, cyan `#22D3EE`, semantic set) defined as CSS variables in
+  `styles/tokens.css`.
+- **Rationale:** Because everything is tokenised, finalising the brand palette
+  is a single-file edit with zero component churn.
+- **Status:** Provisional — revisit at brand sign-off.
+
+## D5 — `robots.ts` / `sitemap.ts` / `manifest.ts` live in `app/`
+
+- **Context:** Chapter 7 §9 places robots/sitemap under `lib/seo/`.
+- **Choice:** They live in `app/` (`app/robots.ts`, `app/sitemap.ts`,
+  `app/manifest.ts`); reusable SEO _helpers_ remain in `lib/seo`.
+- **Rationale:** The Next.js App Router generates these files from `app/`
+  metadata routes. Placing them elsewhere would not work.
+- **Status:** Accepted.
+
+## D6 — Light mode prepared but disabled
+
+- **Choice:** Light-theme tokens are defined in `:root`; the app forces
+  `<html class="dark">`. No theme toggle ships in V1.
+- **Rationale:** Matches the spec ("Light Mode prepared but disabled") and lets a
+  future toggle be added by flipping a class — no rework.
+- **Status:** Accepted.
+
+## D7 — Temporary homepage placeholder
+
+- **Choice:** `app/page.tsx` is a minimal, non-marketing bootstrap placeholder,
+  clearly labelled, to be replaced by the real homepage in M4.
+- **Rationale:** Session 0 is foundation-only (no pages/sections), but the app
+  must compile and the token pipeline must be verifiable. Building nothing would
+  leave a non-buildable repo.
+- **Status:** Temporary — replaced in M4.
+
+## D8 — Logo asset deferred
+
+- **Choice:** No logo SVG generated in Session 0; `public/logos/` is scaffolded
+  empty.
+- **Rationale:** Logos/illustrations are visual assets excluded by the Session 0
+  strict rules. Added with the layout work (M2).
+- **Status:** Deferred.
+
+## D9 — Strict TypeScript superset
+
+- **Choice:** Enabled `noUncheckedIndexedAccess`, `noImplicitOverride`,
+  `noImplicitReturns`, `noFallthroughCasesInSwitch` on top of `strict`.
+- **Rationale:** Catches whole classes of bugs at compile time; cheap to adopt
+  at project start, painful to retrofit later.
+- **Status:** Accepted.
+
+## D10 — Empty route folders documented, not stubbed with pages
+
+- **Choice:** Planned routes exist as folders with a README (purpose + target
+  milestone) and **no `page.tsx`**.
+- **Rationale:** Communicates the information architecture without creating
+  pages (a later-session concern) or empty routes that would 404 oddly.
+- **Status:** Accepted.
+
+## D11 — Self-hosted Inter via `next/font/local` (not `next/font/google`)
+
+- **Context:** The spec calls for Inter via `next/font`. `next/font/google`
+  fetches the font from Google Fonts **at build time**, which fails in networks
+  that don't allow `fonts.googleapis.com`.
+- **Choice:** Vendor the Inter variable woff2 (`app/fonts/inter-variable.woff2`,
+  sourced from the `@fontsource-variable/inter` npm package) and load it with
+  `next/font/local`.
+- **Rationale:** Still `next/font` and still Inter, but with no build-time
+  external dependency — plus the usual self-hosting wins (privacy/GDPR, no extra
+  DNS/connection, deterministic offline builds). To update the font, replace the
+  woff2 from the same package.
+- **Status:** Accepted.

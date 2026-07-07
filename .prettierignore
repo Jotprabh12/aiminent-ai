@@ -1,0 +1,16 @@
+# Build output & dependencies
+.next/
+out/
+build/
+node_modules/
+coverage/
+
+# Lockfiles & generated
+pnpm-lock.yaml
+next-env.d.ts
+*.tsbuildinfo
+
+# Authored specification docs (preserve original formatting)
+docs/chapters/
+docs/appendices/
+docs/claude-v1-website-spec.md

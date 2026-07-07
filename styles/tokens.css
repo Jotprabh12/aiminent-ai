@@ -1,0 +1,128 @@
+/**
+ * Design Tokens — single source of truth for every visual decision.
+ * ---------------------------------------------------------------------------
+ * Consumed by Tailwind via `@theme inline` in app/globals.css. Components must
+ * reference these tokens (e.g. `bg-primary`, `rounded-lg`, `shadow-floating`)
+ * and never hard-code raw hex/px values (Chapter 8 · Chapter 12 §7).
+ *
+ * THEMING MODEL
+ *   :root  → LIGHT theme values. Prepared but DISABLED for V1.
+ *   .dark  → DARK theme values. The active V1 theme (forced on <html>).
+ *   Static tokens (radius/shadow/typography/motion) live in `@theme` in
+ *   globals.css because they do not change between themes.
+ *
+ * COLOR PALETTE
+ *   Provisional "premium electric blue + violet" system. Only the background
+ *   (#0B0D12) is fixed by the PRD (Chapter 3 §4); the rest are defined here and
+ *   are fully swappable — change a value once and it propagates everywhere.
+ *   See docs/decision-log.md → "Provisional color palette".
+ */
+
+/* --------------------------------------------------------------------------
+ * LIGHT THEME — prepared but disabled. Do not delete; enables future toggle.
+ * ------------------------------------------------------------------------ */
+:root {
+  --background: #ffffff;
+  --foreground: #0b0d12;
+
+  --surface: #f7f8fa;
+  --surface-muted: #eef0f4;
+
+  --border: #e2e5ea;
+  --divider: #eceef2;
+
+  --text-secondary: #4a5261;
+  --text-muted: #6b7482;
+
+  --primary: #3b5bf5;
+  --primary-hover: #2f49d6;
+  --primary-foreground: #ffffff;
+
+  --secondary: #7c4dee;
+  --secondary-hover: #6a3ad9;
+  --secondary-foreground: #ffffff;
+
+  --accent: #0ea5c4;
+  --accent-foreground: #ffffff;
+
+  --ring: #3b5bf5;
+
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  --success-subtle: #dcfce7;
+  --success-border: #86efac;
+
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  --warning-subtle: #fef3c7;
+  --warning-border: #fcd34d;
+
+  --error: #dc2626;
+  --error-foreground: #ffffff;
+  --error-subtle: #fee2e2;
+  --error-border: #fca5a5;
+
+  --info: #2563eb;
+  --info-foreground: #ffffff;
+  --info-subtle: #dbeafe;
+  --info-border: #93c5fd;
+
+  /* Gradients — used sparingly for hero/CTA/accents (Appendix C §7). */
+  --gradient-primary: linear-gradient(135deg, #3b5bf5 0%, #7c4dee 100%);
+  --gradient-accent: linear-gradient(135deg, #3b5bf5 0%, #0ea5c4 100%);
+  --gradient-secondary: linear-gradient(135deg, #7c4dee 0%, #4f46e5 100%);
+}
+
+/* --------------------------------------------------------------------------
+ * DARK THEME — the active V1 theme (forced via <html class="dark">).
+ * ------------------------------------------------------------------------ */
+.dark {
+  --background: #0b0d12;
+  --foreground: #f5f7fa;
+
+  --surface: #12151c;
+  --surface-muted: #1a1e27;
+
+  --border: #232833;
+  --divider: #1c212b;
+
+  --text-secondary: #aeb6c4;
+  --text-muted: #6b7482;
+
+  --primary: #4c6fff;
+  --primary-hover: #6180ff;
+  --primary-foreground: #ffffff;
+
+  --secondary: #8b5cf6;
+  --secondary-hover: #9d75f8;
+  --secondary-foreground: #ffffff;
+
+  --accent: #22d3ee;
+  --accent-foreground: #04141a;
+
+  --ring: #4c6fff;
+
+  --success: #22c55e;
+  --success-foreground: #04140a;
+  --success-subtle: #0f2a1a;
+  --success-border: #1f5133;
+
+  --warning: #f59e0b;
+  --warning-foreground: #1a1204;
+  --warning-subtle: #2a2008;
+  --warning-border: #5a4410;
+
+  --error: #ef4444;
+  --error-foreground: #1a0505;
+  --error-subtle: #2a0f0f;
+  --error-border: #5a2020;
+
+  --info: #3b82f6;
+  --info-foreground: #04101f;
+  --info-subtle: #0c1c33;
+  --info-border: #1c3a63;
+
+  --gradient-primary: linear-gradient(135deg, #4c6fff 0%, #8b5cf6 100%);
+  --gradient-accent: linear-gradient(135deg, #4c6fff 0%, #22d3ee 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+}

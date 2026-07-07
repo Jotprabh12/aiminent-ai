@@ -1,0 +1,43 @@
+/**
+ * Token-driven utility classes.
+ * ---------------------------------------------------------------------------
+ * Small, reusable helpers composed from design tokens. They exist so common
+ * multi-property patterns (glass surfaces, gradient text, page gutter) are
+ * defined once. Prefer Tailwind utilities first; add here only when a pattern
+ * repeats and cannot be expressed as a single utility.
+ */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: var(--container-page);
+  padding-inline: 1.5rem;
+}
+
+@media (width >= 1024px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* Frosted card surface used across cards, navbar-on-scroll, and dialogs. */
+@utility surface-glass {
+  background-color: color-mix(in srgb, var(--surface) 70%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+/* Gradient-clipped text for headline accents. */
+@utility text-gradient {
+  background-image: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Animated gradient background (pairs with the gradient-move keyframes). */
+@utility bg-gradient-animated {
+  background-image: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradient-move 8s ease-in-out infinite;
+}
