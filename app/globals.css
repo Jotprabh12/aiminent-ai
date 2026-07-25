@@ -139,6 +139,12 @@
 
   html {
     -webkit-text-size-adjust: 100%;
+    /* Smooth in-page navigation; disabled under reduced motion (animations.css). */
+    scroll-behavior: smooth;
+    /* Reserve the scrollbar gutter so layouts don't shift when it appears. */
+    scrollbar-gutter: stable;
+    /* Firefox scrollbar theming. */
+    scrollbar-color: var(--surface-muted) transparent;
   }
 
   body {
@@ -149,14 +155,59 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* WebKit scrollbar theming (token-driven). */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-muted);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: var(--radius-full);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--border);
+    background-clip: padding-box;
+  }
+
   /* Accessible, consistent focus ring on every interactive element. */
   :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
+    border-radius: var(--radius-sm);
   }
 
   ::selection {
     background-color: color-mix(in srgb, var(--primary) 30%, transparent);
     color: var(--foreground);
+  }
+}
+
+@layer components {
+  /**
+   * Skip-to-content link. Visually hidden until focused, then slides into
+   * view at the top-left. First tab stop for keyboard/screen-reader users.
+   */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-size: var(--text-body-sm);
+    font-weight: 500;
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-200%);
+    transition: transform 150ms var(--ease-standard);
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
   }
 }

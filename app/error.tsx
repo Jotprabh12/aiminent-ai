@@ -20,7 +20,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="container-page flex flex-1 flex-col items-center justify-center gap-4 py-32 text-center">
+    <div className="container-page flex flex-1 flex-col items-center justify-center gap-4 py-32 text-center">
       <h1 className="text-h4 font-semibold text-foreground">
         Something went wrong
       </h1>
@@ -34,6 +34,6 @@ export default function Error({
       >
         Try again
       </button>
-    </main>
+    </div>
   );
 }

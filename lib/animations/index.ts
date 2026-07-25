@@ -12,4 +12,5 @@ export {
   scaleIn,
   slideInRight,
   staggerContainer,
+  pageTransition,
 } from "@/lib/animations/variants";

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="Aiminent AI">
+  <style>
+    :root { color: #0b0d12; }
+    @media (prefers-color-scheme: dark) { :root { color: #f5f7fa; } }
+  </style>
+  <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 27 16 6 26 27" />
+    <path d="M10.5 20 H21.5" />
+  </g>
+  <g fill="currentColor">
+    <circle cx="16" cy="6" r="2.6" />
+    <circle cx="6" cy="27" r="2.2" />
+    <circle cx="26" cy="27" r="2.2" />
+  </g>
+</svg>

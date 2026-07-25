@@ -6,3 +6,5 @@ export {
   useIntersectionObserver,
   type UseIntersectionOptions,
 } from "@/hooks/use-intersection-observer";
+export { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
+export { useFocusTrap } from "@/hooks/use-focus-trap";

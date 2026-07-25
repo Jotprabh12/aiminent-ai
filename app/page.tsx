@@ -1,14 +1,13 @@
 /**
  * TEMPORARY bootstrap placeholder — NOT the homepage.
- *
- * Session 0 delivers the engineering foundation only; the real homepage (Hero,
- * sections, CTA, …) is built in Session 4 / Milestone M4 and will replace this
- * file entirely. It exists so the app compiles and so the design-token pipeline
- * can be verified visually. No marketing copy lives here by design.
+ * Session 0 delivers the engineering foundation only; the real homepage
+ * is built in Session 4 / Milestone M4 and will replace this file entirely.
+ * It exists so the app compiles and the design-token pipeline can be
+ * verified visually. No marketing copy lives here by design.
  */
 export default function BootstrapPlaceholder() {
   return (
-    <main className="container-page flex flex-1 flex-col items-center justify-center gap-4 py-32 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center gap-4 py-32 text-center">
       <span className="rounded-full border border-border bg-surface px-3 py-1 text-caption tracking-wider text-text-secondary uppercase">
         Session 0 · Foundation
       </span>
@@ -19,6 +18,6 @@ export default function BootstrapPlaceholder() {
         This placeholder is replaced by the homepage in Milestone M4. Explore
         the architecture in <code className="text-primary">/docs</code>.
       </p>
-    </main>
+    </div>
   );
 }

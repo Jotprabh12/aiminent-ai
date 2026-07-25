@@ -65,3 +65,16 @@ export const staggerContainer: Variants = {
     transition: { staggerChildren: 0.08, delayChildren: 0.05 },
   },
 };
+
+/**
+ * Route enter transition — subtle fade + slight upward move on navigation
+ * (Chapter 9 §15). Applied by the PageTransition wrapper, keyed by pathname.
+ */
+export const pageTransition: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: DURATION.normal, ease: bezier("out") },
+  },
+};

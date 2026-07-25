@@ -4,22 +4,20 @@ import { Analytics } from "@vercel/analytics/next";
 
 import { buildRootMetadata } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
+import { PageTransition } from "@/components/animations";
+import { Navbar } from "@/components/layout";
+import { Footer } from "@/components/layout";
 import "./globals.css";
 
 /**
  * Root layout — the app shell.
  *
- * - Loads Inter via next/font/local (Chapter 3 §5) and exposes it as
- *   `--font-inter`. The font is self-hosted (vendored woff2) rather than fetched
- *   from Google Fonts — no build-time external dependency, better privacy/perf.
- *   See docs/decision-log.md.
- * - Forces the dark theme (`class="dark"`); light mode is prepared but disabled
- *   for V1 (see docs/decision-log.md).
- * - Applies centralised site metadata and emits Organization + WebSite JSON-LD.
- *
- * The visual shell (Navbar/Footer) is added in M2; this file stays minimal.
+ * - Inter (self-hosted woff2) injected as `--font-inter`.
+ * - Forced dark theme (`class="dark"`); light mode prepared but disabled.
+ * - Centralised metadata + Organization + WebSite JSON-LD.
+ * - Wires Navbar, main content area (page-transition wrapped),
+ *   and Footer around every page.
  */
-
 const inter = localFont({
   src: "./fonts/inter-variable.woff2",
   variable: "--font-inter",
@@ -40,11 +38,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} dark h-full`}>
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
-        {children}
+        {/* Skip-to-content — first tab stop for keyboard users. */}
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+
+        <Navbar />
+
+        <main id="main-content" className="flex flex-1 flex-col">
+          <PageTransition>{children}</PageTransition>
+        </main>
+
+        <Footer />
+
         <Analytics />
         <script
           type="application/ld+json"
-          // Structured data is static JSON generated server-side — safe to inline.
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([organizationSchema(), websiteSchema()]),
           }}
