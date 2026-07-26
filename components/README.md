@@ -1,19 +1,24 @@
 # `components/`
 
 Presentation layer. All React components live here, grouped by responsibility.
-Components are **empty in Session 0 by design** — the foundation defines _where_
-UI belongs; the UI itself is built in Sessions 1+ (Milestones M2–M4).
 
 ## Subfolders
 
-| Folder        | Responsibility                                                                                           |
-| ------------- | -------------------------------------------------------------------------------------------------------- |
-| `ui/`         | Reusable primitives (Button, Card, Badge, Input…). shadcn/ui components land here.                       |
-| `layout/`     | App shell: `Navbar`, `Footer`, `Container`, `Section`, `MobileMenu`.                                     |
-| `sections/`   | Composable page sections: `Hero`, `ProblemGrid`, `SolutionsGrid`, `FAQ`, `CTA`.                          |
-| `forms/`      | Form components: `ContactForm`, `ConsultationForm` (RHF + Zod).                                          |
-| `animations/` | Framer Motion **wrapper components** (e.g. `Reveal`, `Stagger`). Variants/data live in `lib/animations`. |
-| `common/`     | Cross-cutting helpers: `EmptyState`, `ErrorState`, `LoadingState`, icon helpers.                         |
+| Folder        | Responsibility                                                                     |
+| ------------- | ---------------------------------------------------------------------------------- |
+| `ui/`         | Reusable primitives (Button, Card, Badge, Input…). shadcn/ui components land here. |
+| `layout/`     | App shell: `Navbar`, `Footer`, `Container`, `Section`, `MobileMenu`, `Logo`.       |
+| `sections/`   | Composable page sections: `Hero`, `ProblemGrid`, `SolutionsGrid`, `FAQ`, `CTA`.    |
+| `forms/`      | Form components: `ContactForm`, `ConsultationForm` (RHF + Zod).                    |
+| `animations/` | Framer Motion wrapper components (`Reveal`, `Stagger`, `PageTransition`).          |
+| `common/`     | Cross-cutting helpers: `EmptyState`, `ErrorState`, `LoadingState`, icon helpers.   |
+
+## Status
+
+- **Session 0 (M1):** Foundation only — folder structure + barrels defined, no components.
+- **Session 1 (M2):** Layout shell built — `Navbar`, `MobileMenu`, `Footer`, `Logo`,
+  `Container`, `Section`, `Reveal`, `Stagger`, `PageTransition`.
+- **Sessions 2+ (M3–M7):** `ui/` primitives, `sections/`, `forms/` added per milestone.
 
 ## Conventions
 
@@ -22,6 +27,3 @@ UI belongs; the UI itself is built in Sessions 1+ (Milestones M2–M4).
 - **Composition over inheritance.** Small, single-purpose components.
 - **Typed props, no `any`.** Import shared shapes from `@/types`.
 - **Style with tokens**, never raw hex/px — use the design-token utilities.
-- **Accessible by construction**: keyboard, focus ring, ARIA, semantic HTML.
-- Each folder re-exports its public surface via `index.ts`; import from
-  `@/components/<folder>`.

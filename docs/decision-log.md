@@ -113,3 +113,48 @@ Format: **Decision · Context · Choice · Rationale · Status**.
   DNS/connection, deterministic offline builds). To update the font, replace the
   woff2 from the same package.
 - **Status:** Accepted.
+
+## D12 — Mobile drawer pattern (focus trap + body scroll lock + Esc)
+
+- **Context:** Chapter 9 §8 specifies the mobile nav should trap keyboard
+  focus while open and lock body scroll. Session 0 had the hooks stubbed
+  but not implemented.
+- **Choice:** `useFocusTrap` + `useLockBodyScroll` hooks + Esc-to-close +
+  `slideInRight` Framer variant for the drawer animation.
+- **Rationale:** WCAG 2.1.2 (no keyboard trap on modal) and 2.4.3 (focus
+  order) require trapping; `useLockBodyScroll` prevents background scroll
+  underneath the drawer. The Esc key is the expected dismissal pattern.
+- **Status:** Accepted.
+
+## D13 — `app/page.tsx` now a `<div>` (not `<main>`) — layout provides `<main>`
+
+- **Context:** Session 0 left `<main>` only in `not-found.tsx` and
+  `error.tsx`. The layout now wraps all children in `<main id="main-content">`.
+- **Choice:** `page.tsx` (placeholder) drops its own wrapper;
+  `not-found.tsx`, `error.tsx`, `loading.tsx` were also unwrapped to avoid
+  nested `<main>` elements.
+- **Rationale:** One `<main>` per route is the semantic requirement.
+  The layout provides it; page files fill the slot.
+- **Status:** Accepted.
+
+## D14 — `PageTransition` wrapper in layout shell
+
+- **Context:** Chapter 9 §15 calls for subtle route transitions (fade +
+  slight upward move) without long full-screen transitions.
+- **Choice:** A `PageTransition` wrapper in the layout uses Framer Motion's
+  `key={pathname}` pattern (Enter only; no AnimatePresence exit to avoid
+  blocking the incoming route).
+- **Rationale:** `lazyMotion` + `domAnimation` keeps the motion bundle out
+  of the critical path. Enter-only motion is the recommended App Router
+  pattern. Reduced motion disables it cleanly.
+- **Status:** Accepted.
+
+## D15 — Scrollbar styling, skip link, custom selection (theme finishing)
+
+- **Context:** Session 0's theme lacked scrollbar visuals, keyboard skip
+  navigation, and selection styling.
+- **Choice:** Added `::-webkit-scrollbar` theming (token-driven), `skip-link`
+  with `:focus-visible` reveal, and `::selection` styled with primary color.
+- **Rationale:** These are accessibility polish items that are cheap to add
+  once and improve the experience for every user immediately.
+- **Status:** Accepted.
