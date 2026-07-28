@@ -8,7 +8,7 @@ milestone.
 | --------- | -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
 | **M1**    | Project foundation: scaffold, Tailwind, shadcn config, ESLint/Prettier, folder structure, design tokens. | App builds successfully.          | ✅ Done (Session 0) |
 | **M2**    | Global layout: Navbar, Footer, Container, Section, theme, typography, responsive shell.                  | Responsive shell complete.        | ✅ Done (Session 1) |
-| **M3**    | Component library: Button, Card, Badge, Input, Accordion, CTA banner.                                    | Components documented & reusable. | ⬜                  |
+| **M3**    | Component library: Button, Card, Badge, Input, Accordion, CTA banner.                                    | Components documented & reusable. | ✅ Done (Session 2) |
 | **M4**    | Homepage: Hero, Problems, Solutions, Workflow demo, Packages, FAQ, CTA.                                  | Homepage complete.                | ⬜                  |
 | **M5**    | Remaining pages: About, Contact, Solutions, Packages, Industries, Resources placeholders.                | Navigation complete.              | ⬜                  |
 | **M6**    | Integrations: forms, Calendly, metadata, analytics hooks, SEO utilities.                                 | Lead flow operational.            | ⬜                  |
@@ -52,12 +52,14 @@ milestone.
 - All pages (`error.tsx`, `not-found.tsx`, `loading.tsx`) updated to drop
   redundant `<main>` wrappers (layout provides it).
 
-## Recommended next step (M3)
+## What Session 2 (M3) delivered
 
-Build the layout shell (`components/layout`): `Navbar` (glass-on-scroll via
-`useScroll`), `Footer` (from `FOOTER` config), `Container`, and `Section`, then
-wire them into `app/layout.tsx`. See the Session 1 recommendations in the
-handoff summary.
+- **Button:** Primary, Secondary, Outline, Ghost, Link variants; Sm, Md, Lg sizes; loading state, icon support, full-width.
+- **Card:** Feature, Package, Industry, Testimonial, Blog, Integration variants; sub-components (Header, Title, Description, Content, Footer); hover-lift option.
+- **Badge:** Default, Success, Warning, Error, Outline variants; Sm, Md sizes.
+- **Input:** Text Input, Textarea, Select, Checkbox, Radio, Switch; label, helper text, validation state, error state, disabled state.
+- **Accordion:** Single and multiple expand modes; keyboard accessible; smooth animation; controlled and uncontrolled support.
+- **CTABanner:** Configurable heading, description, CTA button; surface/muted/primary backgrounds; left/center/right alignment.
 
 ## Definition of Done (project)
 

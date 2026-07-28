@@ -71,15 +71,17 @@ and scalability.
 
 ## M3 --- Component Library
 
--   Buttons
--   Cards
--   Forms
--   Inputs
--   Badges
--   Accordions
--   CTA Banner
+- Buttons
+- Cards
+- Forms (input primitives)
+- Inputs (text, textarea, select, checkbox, radio, switch)
+- Badges
+- Accordions
+- CTA Banner
 
 **Checkpoint:** Components documented and reusable.
+
+**Status:** ✅ Done (Session 2)
 
 ------------------------------------------------------------------------
 

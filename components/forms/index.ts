@@ -1,6 +1,21 @@
 /**
  * Form components — barrel export. Import from "@/components/forms".
- * ContactForm, ConsultationForm, NewsletterForm — React Hook Form + Zod
- * (schemas in @/lib/validations). Built in M6.
+ * Reusable input primitives (Input, Textarea, Select, Checkbox, Radio,
+ * Switch) built in M3. Full ContactForm, ConsultationForm are M6.
  */
-export {};
+export {
+  Input,
+  Textarea,
+  Select,
+  Checkbox,
+  Radio,
+  Switch,
+} from "@/components/ui/input";
+export type {
+  InputProps,
+  TextareaProps,
+  SelectProps,
+  CheckboxProps,
+  RadioProps,
+  SwitchProps,
+} from "@/components/ui/input";
