@@ -7,6 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Terms of Service — Aiminent AI",
   description: "Terms of service for using Aiminent AI's website and services.",
+  path: "/terms",
 });
 
 export default function TermsPage() {

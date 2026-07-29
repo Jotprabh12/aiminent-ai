@@ -11,6 +11,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Case Studies — Aiminent AI",
   description:
     "Real estate automation case studies and client success stories.",
+  path: "/case-studies",
 });
 
 export default function CaseStudiesPage() {

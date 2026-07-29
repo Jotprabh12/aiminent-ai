@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Blog — Aiminent AI",
   description:
     "Insights on AI automation, CRM best practices, and business growth strategies.",
+  path: "/blog",
 });
 
 export default function BlogPage() {

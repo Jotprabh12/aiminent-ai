@@ -2,8 +2,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input, Select, Switch } from "@/components/ui/input";
+import { ContactForm } from "@/components/forms";
 import { ROUTES } from "@/lib/constants";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
@@ -12,26 +11,8 @@ export const metadata: Metadata = buildMetadata({
   title: "Contact — Aiminent AI",
   description:
     "Get in touch with Aiminent AI. Book a free consultation or schedule a live demo.",
+  path: "/contact",
 });
-
-const INDUSTRIES = [
-  { label: "Real Estate", value: "realestate" },
-  { label: "Healthcare", value: "healthcare" },
-  { label: "Finance", value: "finance" },
-  { label: "Education", value: "education" },
-  { label: "Legal", value: "legal" },
-  { label: "Manufacturing", value: "manufacturing" },
-  { label: "Hospitality", value: "hospitality" },
-  { label: "Other", value: "other" },
-];
-
-const TEAM_SIZES = [
-  { label: "1–10", value: "1-10" },
-  { label: "11–50", value: "11-50" },
-  { label: "51–200", value: "51-200" },
-  { label: "201–500", value: "201-500" },
-  { label: "500+", value: "500+" },
-];
 
 export default function ContactPage() {
   return (
@@ -44,8 +25,8 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="max-w-prose-w text-body text-text-secondary">
-              Remove friction from contacting us. Fill out the form or reach out
-              directly — we respond within one business day.
+              Fill out the form or reach out directly — we respond within one
+              business day.
             </p>
           </div>
         </Container>
@@ -54,7 +35,6 @@ export default function ContactPage() {
       <Section spacing="lg" background="surface">
         <Container>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {/* Contact Info */}
             <div className="space-y-6">
               <h2 className="text-h3 font-semibold text-foreground">
                 Contact Information
@@ -90,40 +70,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Form */}
             <div>
-              <form className="space-y-4" action={ROUTES.thankYou}>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <Input label="First Name" name="firstName" required />
-                  <Input label="Last Name" name="lastName" required />
-                </div>
-                <Input label="Company" name="company" required />
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <Input label="Email" name="email" type="email" required />
-                  <Input label="Phone" name="phone" type="tel" />
-                </div>
-                <Select
-                  label="Industry"
-                  name="industry"
-                  required
-                  options={INDUSTRIES}
-                />
-                <Select
-                  label="Team Size"
-                  name="teamSize"
-                  options={TEAM_SIZES}
-                />
-                <Input
-                  label="Biggest Challenge"
-                  name="challenge"
-                  required
-                  helperText="Tell us what you would like to automate."
-                />
-                <Switch label="I would like a callback instead of email" />
-                <Button type="submit" fullWidth size="lg">
-                  Book Free Consultation
-                </Button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </Container>

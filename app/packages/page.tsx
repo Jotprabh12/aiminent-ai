@@ -12,7 +12,8 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Packages — Aiminent AI",
   description:
-    "Choose the automation level that fits your business. Starter, Growth, or Enterprise packages.",
+    "Flexible AI automation packages for growing businesses. From Starter to Enterprise.",
+  path: "/packages",
 });
 
 const packages = [

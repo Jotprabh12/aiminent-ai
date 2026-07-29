@@ -12,7 +12,8 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Industries — Aiminent AI",
   description:
-    "AI automation solutions for real estate and beyond. See how we help businesses across industries.",
+    "AI automation solutions tailored for real estate, healthcare, finance, and more.",
+  path: "/industries",
 });
 
 const industries = [

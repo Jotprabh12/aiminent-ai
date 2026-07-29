@@ -13,6 +13,7 @@ export const metadata: Metadata = buildMetadata({
   title: "About — Aiminent AI",
   description:
     "We help businesses automate repetitive work, improve customer experiences, and scale operations with AI-powered workflows and custom software.",
+  path: "/about",
 });
 
 const values = [

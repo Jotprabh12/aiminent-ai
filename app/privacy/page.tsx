@@ -7,6 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy — Aiminent AI",
   description: "Our privacy policy and how we handle your data.",
+  path: "/privacy",
 });
 
 export default function PrivacyPage() {

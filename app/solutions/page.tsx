@@ -12,6 +12,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Solutions — Aiminent AI",
   description:
     "AI-powered automation solutions for real estate and beyond. From lead engines to customer lifecycle automation.",
+  path: "/solutions",
 });
 
 const solutions = [

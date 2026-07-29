@@ -11,7 +11,7 @@ milestone.
 | **M3**    | Component library: Button, Card, Badge, Input, Accordion, CTA banner.                                    | Components documented & reusable. | ✅ Done (Session 2) |
 | **M4**    | Homepage: Hero, Problems, Solutions, Workflow demo, Packages, FAQ, CTA.                                  | Homepage complete.                | ✅ Done (Session 3) |
 | **M5**    | Remaining pages: About, Contact, Solutions, Packages, Industries, Resources placeholders.                | Navigation complete.              | ✅ Done (Session 4) |
-| **M6**    | Integrations: forms, Calendly, metadata, analytics hooks, SEO utilities.                                 | Lead flow operational.            | ⬜                  |
+| **M6**    | Integrations: forms, Calendly, metadata, analytics hooks, SEO utilities.                                 | Lead flow operational.            | ✅ Done (Session 5) |
 | **M7**    | Polish: animations, accessibility audit, performance, QA.                                                | Production-ready build.           | ⬜                  |
 
 ## What Session 0 (M1) delivered
@@ -86,6 +86,21 @@ milestone.
 - **Blog, Case Studies, Resources:** Coming-soon placeholders.
 - **All pages:** Server Components, `action`-based forms (no `"use client"`), metadata via `buildMetadata`.
 - **Build:** TypeScript + Next.js build passes; ESLint clean on M5 files; 18 total static routes.
+
+## What Session 5 (M6) delivered
+
+- **Server actions:** `lib/actions/contact.ts` and `lib/actions/consultation.ts` with Zod validation, `useActionState`-compatible return types, and `redirect` on success.
+- **Client form components:** `ContactForm` and `ConsultationForm` — client components with `useActionState`, inline error display, full field alignment with schemas.
+- **Email integration:** `lib/integrations/email.ts` — Resend API via fetch with graceful fallback to console log when API key not configured.
+- **Lead sink:** `lib/integrations/lead-sink.ts` — formats lead data and sends via email; implements the `LeadSink` interface.
+- **API routes:** `app/api/contact/route.ts` and `app/api/consultation/route.ts` — POST endpoints with Zod validation, returning JSON responses.
+- **Calendly integration:** `components/ui/calendly-button.tsx` — conditional button when `NEXT_PUBLIC_CALENDLY_URL` is set and feature flag enabled.
+- **Analytics tracking:** `track()` calls in server actions for `contact_submitted` and `consultation_booked` events; `TrackedButton` component for CTA click tracking; `Analytics` component already wired in layout.
+- **Metadata paths:** All 12 page metadata calls now include `path` for correct canonical URLs.
+- **Dynamic thank-you page:** Reads `source` query param to show contact vs. consultation messaging; shows Calendly link when configured.
+- **Barrel exports:** `lib/actions/index.ts`, `lib/integrations/index.ts` updated with new exports.
+- **Feature flags:** `calendly` enabled by default.
+- **Build:** 22 routes (20 static + 2 dynamic API + 2 dynamic pages), TypeScript + lint clean.
 
 ## Definition of Done (project)
 

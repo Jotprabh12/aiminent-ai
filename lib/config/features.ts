@@ -27,7 +27,7 @@ export const features: FeatureFlags = {
   caseStudies: false,
   newsletter: false,
   lightMode: false,
-  calendly: false,
+  calendly: true,
 };
 
 /** Narrow helper for readable guards: `if (isEnabled("blog")) …`. */

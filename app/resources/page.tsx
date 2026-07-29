@@ -8,6 +8,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Resources — Aiminent AI",
   description:
     "Automation guides, AI playbooks, and best practices for your business.",
+  path: "/resources",
 });
 
 export default function ResourcesPage() {

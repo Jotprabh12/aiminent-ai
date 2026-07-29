@@ -3,7 +3,7 @@ import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { ConsultationForm } from "@/components/forms";
 import { ROUTES } from "@/lib/constants";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
@@ -12,6 +12,7 @@ export const metadata: Metadata = buildMetadata({
   title: "Book Free Consultation — Aiminent AI",
   description:
     "Schedule a free 30-minute consultation to discuss your automation needs.",
+  path: "/book-consultation",
 });
 
 export default function BookConsultationPage() {
@@ -89,23 +90,7 @@ export default function BookConsultationPage() {
               <h2 className="mb-4 text-h3 font-semibold text-foreground">
                 Schedule Your Call
               </h2>
-              <form className="space-y-4" action={ROUTES.thankYou}>
-                <Input label="Full Name" name="name" required />
-                <Input label="Email" name="email" type="email" required />
-                <Input label="Company" name="company" />
-                <Input
-                  label="Phone"
-                  name="phone"
-                  type="tel"
-                  helperText="Optional — for callback booking"
-                />
-                <Button type="submit" fullWidth size="lg">
-                  Confirm Booking
-                </Button>
-              </form>
-              <p className="mt-4 text-center text-xs text-text-muted">
-                We&apos;ll confirm your slot within 24 hours.
-              </p>
+              <ConsultationForm />
             </Card>
           </div>
         </Container>

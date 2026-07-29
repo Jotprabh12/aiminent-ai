@@ -1,18 +1,18 @@
 import { z } from "zod";
 
-/**
- * Contact form schema (Chapter 8 · Chapter 12 §12). Shared between the client
- * (React Hook Form resolver) and the server action so validation is defined
- * exactly once.
- */
 export const contactFormSchema = z.object({
-  name: z.string().min(2, "Please enter your name.").max(80),
+  firstName: z.string().min(1, "Please enter your first name.").max(50),
+  lastName: z.string().min(1, "Please enter your last name.").max(50),
+  company: z.string().min(1, "Please enter your company name.").max(120),
   email: z.string().email("Please enter a valid email address."),
-  company: z.string().max(120).optional(),
-  message: z
+  phone: z.string().optional(),
+  industry: z.string().min(1, "Please select your industry."),
+  teamSize: z.string().optional(),
+  challenge: z
     .string()
-    .min(10, "Please add a little more detail (10+ characters).")
+    .min(10, "Please describe your challenge (10+ characters).")
     .max(2000),
+  wantsCallback: z.boolean().optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
