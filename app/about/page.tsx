@@ -70,7 +70,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Story */}
-      <Section id="story" spacing="lg" background="surface">
+      <Section id="story" spacing="lg" background="surface" reveal>
         <Container>
           <h2 className="text-center text-h2 font-semibold text-foreground">
             Our Story
@@ -108,7 +108,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Values */}
-      <Section spacing="lg" background="base">
+      <Section spacing="lg" background="base" reveal>
         <Container>
           <h2 className="text-center text-h2 font-semibold text-foreground">
             Our Values
@@ -129,7 +129,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Process */}
-      <Section id="process" spacing="lg" background="surface">
+      <Section id="process" spacing="lg" background="surface" reveal>
         <Container>
           <h2 className="text-center text-h2 font-semibold text-foreground">
             Our Process
@@ -164,7 +164,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Technology Stack */}
-      <Section spacing="lg" background="base">
+      <Section spacing="lg" background="base" reveal>
         <Container>
           <h2 className="text-center text-h2 font-semibold text-foreground">
             Our Technology Stack

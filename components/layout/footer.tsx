@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/layout";
-import { FOOTER, ROUTES, SITE } from "@/lib/constants";
+import { FOOTER, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 /**

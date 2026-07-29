@@ -1,10 +1,8 @@
 import { type ReactNode } from "react";
 
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/animations";
-import { cn } from "@/lib/utils";
 
 export interface HeroSectionProps {
   eyebrow?: string;
@@ -13,7 +11,6 @@ export interface HeroSectionProps {
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
   highlights?: string[];
-  className?: string;
 }
 
 export function HeroSection({
@@ -23,7 +20,6 @@ export function HeroSection({
   primaryCta,
   secondaryCta,
   highlights,
-  className,
 }: HeroSectionProps) {
   return (
     <Section id="hero" spacing="lg" background="base">

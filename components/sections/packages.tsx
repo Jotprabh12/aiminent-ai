@@ -6,7 +6,6 @@ import { Section } from "@/components/layout/section";
 import { Stagger } from "@/components/animations";
 import { type Package } from "@/types";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export interface PackagesSectionProps {
   title: string;

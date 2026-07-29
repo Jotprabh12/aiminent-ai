@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { Reveal, Stagger } from "@/components/animations";
+import { Reveal } from "@/components/animations";
 import { cn } from "@/lib/utils";
 
 export interface SolutionCardProps {

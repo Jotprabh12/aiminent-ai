@@ -85,8 +85,11 @@ export default function PackagesPage() {
         </Container>
       </Section>
 
-      <Section spacing="lg" background="surface">
+      <Section spacing="lg" background="surface" reveal>
         <Container>
+          <h2 className="mb-8 text-center text-h2 font-semibold text-foreground">
+            Choose Your Package
+          </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {packages.map((pkg) => (
               <Card

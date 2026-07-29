@@ -32,7 +32,7 @@ export default function ContactPage() {
         </Container>
       </Section>
 
-      <Section spacing="lg" background="surface">
+      <Section spacing="lg" background="surface" reveal>
         <Container>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div className="space-y-6">

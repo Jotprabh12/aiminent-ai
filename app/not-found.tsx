@@ -22,7 +22,7 @@ export default function NotFound() {
       </p>
       <Link
         href={ROUTES.home}
-        className="text-body-sm font-medium text-primary underline-offset-4 hover:underline"
+        className="rounded-md text-body-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
       >
         Back to home
       </Link>

@@ -1,8 +1,4 @@
-import {
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  type ReactNode,
-} from "react";
+import { type ButtonHTMLAttributes, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 

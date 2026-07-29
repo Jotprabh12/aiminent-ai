@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { Reveal } from "@/components/animations";
 
 export interface ProblemCardProps {
   title: string;
@@ -46,8 +47,10 @@ export function ProblemGrid({ title, subtitle, problems }: ProblemGridProps) {
           )}
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {problems.map((p) => (
-            <ProblemCard key={p.title} {...p} />
+          {problems.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.08}>
+              <ProblemCard {...p} />
+            </Reveal>
           ))}
         </div>
       </Container>

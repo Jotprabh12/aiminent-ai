@@ -34,7 +34,7 @@ export default function BookConsultationPage() {
         </Container>
       </Section>
 
-      <Section spacing="lg" background="surface">
+      <Section spacing="lg" background="surface" reveal>
         <Container>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {/* Benefits */}
