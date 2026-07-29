@@ -19,6 +19,7 @@ Presentation layer. All React components live here, grouped by responsibility.
 - **Session 1 (M2):** Layout shell built — `Navbar`, `MobileMenu`, `Footer`, `Logo`,
   `Container`, `Section`, `Reveal`, `Stagger`, `PageTransition`.
 - **Session 2 (M3):** UI primitives built — `Button`, `Card`, `Badge`, `Input`, `Accordion`, `CTABanner`.
+- **Session 3 (M4):** Homepage built — `HeroSection`, `ProblemGrid`, `SolutionsGrid`, `WorkflowDemo`, `PackagesSection`, `FAQSection`.
 
 ## Conventions
 

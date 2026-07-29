@@ -97,6 +97,8 @@ and scalability.
 
 **Checkpoint:** Homepage complete.
 
+**Status:** ✅ Done (Session 3)
+
 ------------------------------------------------------------------------
 
 ## M5 --- Remaining Pages

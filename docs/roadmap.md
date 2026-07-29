@@ -9,7 +9,7 @@ milestone.
 | **M1**    | Project foundation: scaffold, Tailwind, shadcn config, ESLint/Prettier, folder structure, design tokens. | App builds successfully.          | ✅ Done (Session 0) |
 | **M2**    | Global layout: Navbar, Footer, Container, Section, theme, typography, responsive shell.                  | Responsive shell complete.        | ✅ Done (Session 1) |
 | **M3**    | Component library: Button, Card, Badge, Input, Accordion, CTA banner.                                    | Components documented & reusable. | ✅ Done (Session 2) |
-| **M4**    | Homepage: Hero, Problems, Solutions, Workflow demo, Packages, FAQ, CTA.                                  | Homepage complete.                | ⬜                  |
+| **M4**    | Homepage: Hero, Problems, Solutions, Workflow demo, Packages, FAQ, CTA.                                  | Homepage complete.                | ✅ Done (Session 3) |
 | **M5**    | Remaining pages: About, Contact, Solutions, Packages, Industries, Resources placeholders.                | Navigation complete.              | ⬜                  |
 | **M6**    | Integrations: forms, Calendly, metadata, analytics hooks, SEO utilities.                                 | Lead flow operational.            | ⬜                  |
 | **M7**    | Polish: animations, accessibility audit, performance, QA.                                                | Production-ready build.           | ⬜                  |
@@ -60,6 +60,17 @@ milestone.
 - **Input:** Text Input, Textarea, Select, Checkbox, Radio, Switch; label, helper text, validation state, error state, disabled state.
 - **Accordion:** Single and multiple expand modes; keyboard accessible; smooth animation; controlled and uncontrolled support.
 - **CTABanner:** Configurable heading, description, CTA button; surface/muted/primary backgrounds; left/center/right alignment.
+
+## What Session 3 (M4) delivered
+
+- **HeroSection:** Eyebrow, headline, subheadline, primary + secondary CTAs, trust chips.
+- **ProblemGrid:** Six problem cards with hover-lift effect, each showing problem + solution.
+- **SolutionsGrid:** Six solution cards with features list and CTA link.
+- **WorkflowDemo:** Seven-step horizontal timeline with connecting line and staggered reveals.
+- **PackagesSection:** Three package cards (Starter, Growth, Enterprise) with features and recommended badge.
+- **FAQSection:** Six FAQ items in an accordion with smooth animation.
+- **CTABanner:** Final CTA banner with "Book Free Consultation" link.
+- **Homepage (`app/page.tsx`):** Full homepage composing all sections in spec-defined order.
 
 ## Definition of Done (project)
 
