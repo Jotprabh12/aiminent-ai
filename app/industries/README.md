@@ -1,6 +1,4 @@
 # `app/industries/`
 
-Industries index plus dynamic detail routes (`/industries/[slug]`). Real Estate
-launches first; others render as "coming soon". Content from
-`@/content/industries`. Built in M5. No `page.tsx` yet (Session 0 is foundation
-only).
+Industries index — Real Estate (live) + 7 coming-soon industry cards. Built in
+M5. Dynamic detail routes (`/industries/[slug]`) planned.

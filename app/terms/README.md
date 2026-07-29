@@ -1,4 +1,4 @@
 # `app/terms/`
 
-Terms of Service (legal). Built in M5. No `page.tsx` yet (Session 0 is
-foundation only).
+Terms of Service (legal) — 7 sections covering acceptance, services, client
+responsibilities, IP, liability, termination, and contact. Built in M5.

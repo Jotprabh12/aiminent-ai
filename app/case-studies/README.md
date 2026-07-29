@@ -1,4 +1,4 @@
 # `app/case-studies/`
 
-Case studies — placeholder, gated by the `caseStudies` feature flag. Built when
-enabled. No `page.tsx` yet (Session 0 is foundation only).
+Case studies — placeholder page with hero and placeholder cards, gated by the
+`caseStudies` feature flag.

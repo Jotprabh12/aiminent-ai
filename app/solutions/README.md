@@ -1,5 +1,6 @@
 # `app/solutions/`
 
-Solutions index plus dynamic detail routes (`/solutions/[slug]`, e.g.
-`ai-lead-engine`). Content comes from `@/content/solutions`. Built in M5. No
-`page.tsx` yet (Session 0 is foundation only).
+Solutions index — 6 solution cards (AI Lead Engine, AI Sales Assistant, AI
+Property Consultant, Customer Lifecycle, Marketing Automation, Custom AI) with
+features and CTA. Dynamic detail routes (`/solutions/[slug]`) planned. Built in
+M5.

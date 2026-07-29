@@ -158,3 +158,5 @@ Format: **Decision · Context · Choice · Rationale · Status**.
 - **Rationale:** These are accessibility polish items that are cheap to add
   once and improve the experience for every user immediately.
 - **Status:** Accepted.
+
+## D16 — `Card` variant names reduced from spec (M3)

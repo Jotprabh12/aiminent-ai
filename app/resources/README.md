@@ -1,4 +1,4 @@
 # `app/resources/`
 
-Resources hub — placeholder navigation target (Spec §8). Feature-gated. Built
-as a placeholder in M5. No `page.tsx` yet (Session 0 is foundation only).
+Resources hub — placeholder page describing upcoming content library (Spec §8).
+Built in M5.

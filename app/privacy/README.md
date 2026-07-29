@@ -1,4 +1,4 @@
 # `app/privacy/`
 
-Privacy Policy (legal). Built in M5. No `page.tsx` yet (Session 0 is foundation
-only).
+Privacy Policy (legal) — 6 sections covering data collection, usage, security,
+and rights. Built in M5.
