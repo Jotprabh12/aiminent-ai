@@ -17,8 +17,8 @@ export interface Package {
   outcome: string;
   /** Key automations included. */
   automations: string[];
-  /** Lucide icon key. */
-  icon: string;
+  /** Lucide icon key (optional, not rendered in card). */
+  icon?: string;
   cta?: CTA;
   /** Highlight as the recommended / featured package. */
   featured?: boolean;
