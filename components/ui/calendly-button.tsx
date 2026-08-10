@@ -1,12 +1,18 @@
-import { env } from "@/lib/config/env";
 import { features } from "@/lib/config/features";
+import { calendlyProvider } from "@/lib/integrations/booking";
 
+/**
+ * Calendly CTA — renders only when the Calendly feature flag is on AND a
+ * booking URL is configured. Reads through the booking provider so no
+ * credential or URL is hardcoded here.
+ */
 export function CalendlyButton() {
-  const url = env.NEXT_PUBLIC_CALENDLY_URL;
-
-  if (!features.calendly || !url) {
+  if (!features.calendly || !calendlyProvider.handlesScheduling()) {
     return null;
   }
+
+  const url = calendlyProvider.getBookingUrl();
+  if (!url) return null;
 
   return (
     <a

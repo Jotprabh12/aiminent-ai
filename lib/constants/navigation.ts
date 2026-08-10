@@ -24,7 +24,10 @@ export const PRIMARY_CTA: NavItem = {
   href: ROUTES.bookConsultation,
 };
 
-/** Footer columns, socials, and legal links (Chapter 2 §8). */
+/**
+ * Footer — a single compact navigation row (Company · Solutions · Industries ·
+ * Resources) plus social and legal links (Chapter 2 §8).
+ */
 export const FOOTER: FooterConfig = {
   columns: [
     {
@@ -56,8 +59,9 @@ export const FOOTER: FooterConfig = {
   ],
   social: [
     { label: "LinkedIn", href: SOCIALS.linkedin, external: true },
-    { label: "GitHub", href: SOCIALS.github, external: true },
     { label: "X", href: SOCIALS.x, external: true },
+    { label: "GitHub", href: SOCIALS.github, external: true },
+    { label: "Instagram", href: SOCIALS.instagram, external: true },
   ],
   legal: [
     { label: "Privacy", href: ROUTES.privacy },

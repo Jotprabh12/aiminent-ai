@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Input, Select } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,13 +30,26 @@ const TEAM_SIZES = [
 
 const initialState: ConsultationFormState = {};
 
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button type="submit" fullWidth size="lg" loading={pending}>
+      {pending ? "Confirming…" : "Confirm Booking"}
+    </Button>
+  );
+}
+
 export function ConsultationForm() {
   const [state, formAction] = useActionState(submitConsultation, initialState);
 
   return (
     <form className="space-y-4" action={formAction}>
       {state.message && (
-        <p className="bg-destructive/10 text-destructive rounded-md p-3 text-sm">
+        <p
+          role="alert"
+          className="bg-destructive/10 text-destructive rounded-md p-3 text-sm"
+        >
           {state.message}
         </p>
       )}
@@ -87,9 +101,7 @@ export function ConsultationForm() {
         helperText="Tell us what you would like to automate."
         error={state.errors?.challenge?.[0]}
       />
-      <Button type="submit" fullWidth size="lg">
-        Confirm Booking
-      </Button>
+      <SubmitButton />
     </form>
   );
 }

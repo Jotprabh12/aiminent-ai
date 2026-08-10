@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Badge } from "@/components/ui/badge";
+import { PageHero } from "@/components/ui/page-hero";
 import { ContactForm } from "@/components/forms";
 import { ROUTES } from "@/lib/constants";
 import type { Metadata } from "next";
@@ -17,20 +17,14 @@ export const metadata: Metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <>
-      <Section id="contact-hero" spacing="lg" background="base">
-        <Container>
-          <div className="flex flex-col items-center gap-4 text-center">
-            <Badge>Contact</Badge>
-            <h1 className="text-h1 font-semibold text-foreground">
-              Get in Touch
-            </h1>
-            <p className="max-w-prose-w text-body text-text-secondary">
-              Fill out the form or reach out directly — we respond within one
-              business day.
-            </p>
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        badge="Contact"
+        title="Get in Touch"
+        description="Fill out the form or reach out directly — we respond within one business day."
+        image="/images/hero-contact.jpg"
+        imageAlt="Business professional communicating with clients in a modern office"
+        imagePosition="center 55%"
+      />
 
       <Section spacing="lg" background="surface" reveal>
         <Container>
@@ -44,19 +38,19 @@ export default function ContactPage() {
                   <h3 className="text-body-sm font-medium text-foreground">
                     Email
                   </h3>
-                  <p>hello@aiminent.ai</p>
+                  <p>team@aiminentai.com</p>
                 </div>
                 <div>
                   <h3 className="text-body-sm font-medium text-foreground">
                     Phone
                   </h3>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+91 7888876239</p>
                 </div>
                 <div>
                   <h3 className="text-body-sm font-medium text-foreground">
                     Business Hours
                   </h3>
-                  <p>Monday — Friday, 9 AM — 6 PM EST</p>
+                  <p>Monday — Friday, 9 AM — 6 PM IST</p>
                 </div>
                 <div>
                   <h3 className="text-body-sm font-medium text-foreground">

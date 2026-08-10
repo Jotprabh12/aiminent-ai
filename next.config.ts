@@ -10,6 +10,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
+  // Allow HMR / dev resources from this LAN host.
+  allowedDevOrigins: ["10.71.26.199"],
+
   // Fail the production build on type errors instead of shipping them.
   // (Next 16 no longer runs ESLint during the build; linting is a separate
   // `pnpm lint` step and a pre-commit hook.)

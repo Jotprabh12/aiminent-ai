@@ -98,7 +98,7 @@ export default function TermsPage() {
               </h2>
               <p className="mt-2">
                 For questions about these Terms, contact us at
-                hello@aiminent.ai.
+                team@aiminentai.com.
               </p>
             </section>
           </div>

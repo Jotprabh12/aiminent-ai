@@ -1,6 +1,14 @@
+import {
+  ClipboardCheck,
+  Code2,
+  PencilRuler,
+  PhoneCall,
+  RefreshCcw,
+  Rocket,
+  Workflow,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
 import { HeroSection } from "@/components/sections/hero";
 import { ProblemGrid } from "@/components/sections/problem-grid";
 import { SolutionsGrid } from "@/components/sections/solutions-grid";
@@ -8,23 +16,7 @@ import { WorkflowDemo } from "@/components/sections/workflow-demo";
 import { FAQSection } from "@/components/sections/faq";
 import { PackagesSection } from "@/components/sections/packages";
 import { CTABanner } from "@/components/ui/cta-banner";
-
-const heroIcons = {
-  lightning: (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>
-  ),
-} as const;
+import { BrandLogoStrip } from "@/components/ui/brand-logos";
 
 const problemIcons = {
   alert: (
@@ -228,60 +220,66 @@ const solutionIcons = {
   ),
 } as const;
 
-export const workflowSteps = [
+/** Implementation timeline — the phases of one automation project. */
+export const implementationPhases = [
   {
-    number: 1,
-    title: "Discovery Call",
-    description:
-      "We learn about your business, goals, and automation opportunities in a 30-minute call.",
-    icon: heroIcons.lightning,
-    delay: 0,
+    id: "discovery",
+    week: "Week 1",
+    title: "Discovery",
+    items: ["Discovery call", "Business audit"],
+    duration: "1 week",
+    icon: <PhoneCall size={24} aria-hidden="true" />,
   },
   {
-    number: 2,
-    title: "Business Audit",
-    description:
-      "Our team maps your current workflows and identifies inefficiencies.",
-    icon: problemIcons.database,
-    delay: 1,
+    id: "mapping",
+    week: "Week 2",
+    title: "Planning",
+    items: ["Workflow mapping", "Requirement analysis"],
+    duration: "1 week",
+    icon: <Workflow size={24} aria-hidden="true" />,
   },
   {
-    number: 3,
-    title: "Solution Design",
-    description:
-      "We architect a custom AI automation plan tailored to your needs.",
-    icon: solutionIcons.chip,
-    delay: 2,
+    id: "design",
+    week: "Week 3–4",
+    title: "Automation Design",
+    items: [
+      "Architecture of your automation stack",
+      "Integration design & approvals",
+    ],
+    duration: "2 weeks",
+    icon: <PencilRuler size={24} aria-hidden="true" />,
   },
   {
-    number: 4,
+    id: "development",
+    week: "Week 5–6",
     title: "Development",
-    description: "Our engineers build and integrate your automation stack.",
-    icon: solutionIcons.wrench,
-    delay: 3,
+    items: ["Building workflows & AI integrations"],
+    duration: "2 weeks",
+    icon: <Code2 size={24} aria-hidden="true" />,
   },
   {
-    number: 5,
-    title: "Testing",
-    description:
-      "Rigorous QA ensures every workflow performs reliably in production.",
-    icon: problemIcons.repeat,
-    delay: 4,
+    id: "testing",
+    week: "Week 7",
+    title: "Testing & Training",
+    items: ["Rigorous testing", "Refinement", "Team training"],
+    duration: "1 week",
+    icon: <ClipboardCheck size={24} aria-hidden="true" />,
   },
   {
-    number: 6,
+    id: "deployment",
+    week: "Week 8",
     title: "Deployment",
-    description: "Launch with confidence — we handle the rollout and handoff.",
-    icon: heroIcons.lightning,
-    delay: 5,
+    items: ["Launch & go-live handoff"],
+    duration: "1 week",
+    icon: <Rocket size={24} aria-hidden="true" />,
   },
   {
-    number: 7,
-    title: "Support & Optimization",
-    description:
-      "Ongoing monitoring, tuning, and feature additions to maximize ROI.",
-    icon: solutionIcons.robot,
-    delay: 6,
+    id: "optimization",
+    week: "Ongoing",
+    title: "Optimization & Support",
+    items: ["Continuous optimization", "Dedicated support", "Iteration"],
+    duration: "Ongoing",
+    icon: <RefreshCcw size={24} aria-hidden="true" />,
   },
 ];
 
@@ -320,7 +318,7 @@ const faqItems = [
     id: "security",
     question: "How secure are the automations?",
     answer:
-      "Enterprise-grade security with encryption at rest, SOC 2 compliance, and regular audits.",
+      "Enterprise-grade security with encryption at rest and regular audits.",
   },
 ];
 
@@ -337,6 +335,7 @@ const packages = [
       "Basic CRM sync",
       "WhatsApp integration",
     ],
+    price: "Starting from $999/month",
     cta: { label: "Learn more", href: "/packages" },
     featured: false,
   },
@@ -352,6 +351,7 @@ const packages = [
       "Sales pipeline automation",
       "Analytics dashboard",
     ],
+    price: "Starting from $3,999/month",
     cta: { label: "Learn more", href: "/packages" },
     featured: true,
   },
@@ -367,6 +367,7 @@ const packages = [
       "Multi-department workflows",
       "Dedicated account manager",
     ],
+    price: "Contact Us",
     cta: { label: "Learn more", href: "/packages" },
     featured: false,
   },
@@ -380,6 +381,8 @@ export default function HomePage() {
         eyebrow="AI Automation Agency"
         headline="Automate Your Business. Close More Deals. Save Hundreds of Hours."
         subheadline="Help your team automate lead management, WhatsApp follow-ups, CRM workflows, appointment scheduling and customer communication using AI-powered automation."
+        backgroundImage="/images/hero-home.jpg"
+        backgroundImageAlt="Business team working with AI automation in a modern office"
         primaryCta={
           <Button href="/book-consultation" size="lg">
             Book Free Consultation
@@ -396,29 +399,8 @@ export default function HomePage() {
           "WhatsApp Automation",
           "Custom Software",
         ]}
+        footer={<BrandLogoStrip className="mt-4 pt-6" />}
       />
-
-      {/* Trusted Technologies */}
-      <Section id="technologies" spacing="md" background="surface">
-        <Container>
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
-            {[
-              "OpenAI",
-              "Anthropic",
-              "Google",
-              "WhatsApp",
-              "HubSpot",
-              "Salesforce",
-              "Zapier",
-              "n8n",
-            ].map((name) => (
-              <span key={name} className="text-sm font-medium text-text-muted">
-                {name}
-              </span>
-            ))}
-          </div>
-        </Container>
-      </Section>
 
       {/* Problems */}
       <ProblemGrid
@@ -575,11 +557,12 @@ export default function HomePage() {
         packages={packages}
       />
 
-      {/* Workflow Demo */}
+      {/* Implementation timeline */}
       <WorkflowDemo
-        title="How It Works"
-        subtitle="From discovery to optimization — our process delivers results fast."
-        steps={workflowSteps}
+        title="From Discovery to Deployment in 8 Weeks"
+        subtitle="A clear, staged timeline for every automation project — so you always know what happens next."
+        phases={implementationPhases}
+        totalDuration="~8 weeks from kickoff to launch"
         ctaLabel="Start your project"
         ctaHref="/book-consultation"
       />

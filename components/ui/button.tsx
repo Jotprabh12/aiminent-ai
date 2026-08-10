@@ -17,6 +17,10 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   /** Render as an anchor tag with the given href. */
   href?: string;
+  /** Anchor target when rendered as a link (e.g. "_blank"). */
+  target?: string;
+  /** Anchor rel when rendered as a link. */
+  rel?: string;
 }
 
 const VARIANT_CLASSES = {
@@ -46,6 +50,8 @@ export function Button({
   fullWidth = false,
   disabled = false,
   href,
+  target,
+  rel,
   className,
   ...props
 }: ButtonProps) {
@@ -62,6 +68,8 @@ export function Button({
     return (
       <a
         href={href}
+        target={target}
+        rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
         className={classes}
         aria-disabled={disabled || loading || undefined}
       >

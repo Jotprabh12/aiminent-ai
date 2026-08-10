@@ -17,14 +17,14 @@ self-contained server bundle (`output: "standalone"`) for container/self-host.
 
 ## Environment variables
 
-| Variable                    | Scope  | Required | Purpose                              |
-| --------------------------- | ------ | -------- | ------------------------------------ |
-| `NEXT_PUBLIC_SITE_URL`      | Public | Yes      | Canonical origin (SEO, OG, sitemap). |
-| `NEXT_PUBLIC_CALENDLY_URL`  | Public | M6       | Consultation booking embed.          |
-| `RESEND_API_KEY`            | Secret | M6       | Transactional email.                 |
-| `RESEND_FROM_EMAIL`         | Secret | M6       | Verified sender.                     |
-| `NEXT_PUBLIC_GA_ID`         | Public | Optional | Google Analytics.                    |
-| `NEXT_PUBLIC_META_PIXEL_ID` | Public | Optional | Meta Pixel.                          |
+| Variable                    | Scope  | Required | Purpose                                                             |
+| --------------------------- | ------ | -------- | ------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`      | Public | Yes      | Canonical origin (SEO, OG, sitemap).                                |
+| `NEXT_PUBLIC_CALENDLY_URL`  | Public | Optional | Calendly event override (live event is baked in as the V1 default). |
+| `RESEND_API_KEY`            | Secret | M6       | Transactional email.                                                |
+| `RESEND_FROM_EMAIL`         | Secret | M6       | Verified sender.                                                    |
+| `NEXT_PUBLIC_GA_ID`         | Public | Optional | Google Analytics.                                                   |
+| `NEXT_PUBLIC_META_PIXEL_ID` | Public | Optional | Meta Pixel.                                                         |
 
 Set `NEXT_PUBLIC_SITE_URL` to the production domain so canonicals, Open Graph
 URLs, `robots.txt`, and `sitemap.xml` resolve correctly.

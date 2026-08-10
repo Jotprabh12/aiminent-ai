@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Input, Select, Switch } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { submitContact, type ContactFormState } from "@/lib/actions/contact";
@@ -26,13 +27,26 @@ const TEAM_SIZES = [
 
 const initialState: ContactFormState = {};
 
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button type="submit" fullWidth size="lg" loading={pending}>
+      {pending ? "Sending…" : "Send Enquiry"}
+    </Button>
+  );
+}
+
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContact, initialState);
 
   return (
     <form className="space-y-4" action={formAction}>
       {state.message && (
-        <p className="bg-destructive/10 text-destructive rounded-md p-3 text-sm">
+        <p
+          role="alert"
+          className="bg-destructive/10 text-destructive rounded-md p-3 text-sm"
+        >
           {state.message}
         </p>
       )}
@@ -76,9 +90,7 @@ export function ContactForm() {
         error={state.errors?.challenge?.[0]}
       />
       <Switch label="I would like a callback instead of email" />
-      <Button type="submit" fullWidth size="lg">
-        Book Free Consultation
-      </Button>
+      <SubmitButton />
     </form>
   );
 }

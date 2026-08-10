@@ -210,4 +210,15 @@
   .skip-link:focus-visible {
     transform: translateY(0);
   }
+
+  /**
+   * Calendly embed — round the injected iframe to match the surrounding card.
+   * The widget container keeps its radius; the iframe (a direct child, per
+   * Calendly's widget.js) would otherwise show square corners because the
+   * container must not clip Calendly's content. Styling the iframe element
+   * itself is safe — its internal document is never touched.
+   */
+  .calendly-inline-widget > iframe {
+    border-radius: var(--radius-xl);
+  }
 }

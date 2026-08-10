@@ -4,6 +4,7 @@ import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/page-hero";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/constants";
 import type { Metadata } from "next";
@@ -29,7 +30,7 @@ const packages = [
       "Basic CRM sync",
       "WhatsApp integration",
     ],
-    price: "Starting at $2,999/mo",
+    price: "Starting from $999/month",
     featured: false,
   },
   {
@@ -44,7 +45,7 @@ const packages = [
       "Sales pipeline automation",
       "Analytics dashboard",
     ],
-    price: "Starting at $5,999/mo",
+    price: "Starting from $3,999/month",
     featured: true,
   },
   {
@@ -59,7 +60,7 @@ const packages = [
       "Multi-department workflows",
       "Dedicated account manager",
     ],
-    price: "Contact us",
+    price: "Contact Us",
     featured: false,
   },
 ];
@@ -67,23 +68,16 @@ const packages = [
 export default function PackagesPage() {
   return (
     <>
-      <Section id="packages-hero" spacing="lg" background="base">
-        <Container>
-          <div className="flex flex-col items-center gap-4 text-center">
-            <Badge>Packages</Badge>
-            <h1 className="text-h1 font-semibold text-foreground">
-              Automation That Grows With You
-            </h1>
-            <p className="max-w-prose-w text-body text-text-secondary">
-              Choose the automation level that fits your business. All packages
-              include ongoing support and optimization.
-            </p>
-            <Button href={ROUTES.bookConsultation}>
-              Book Free Consultation
-            </Button>
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        badge="Packages"
+        title="Automation That Grows With You"
+        description="Choose the automation level that fits your business. All packages include ongoing support and optimization."
+        image="/images/hero-packages.jpg"
+        imageAlt="Business leaders reviewing their automation strategy"
+        imagePosition="center 60%"
+      >
+        <Button href={ROUTES.bookConsultation}>Book Free Consultation</Button>
+      </PageHero>
 
       <Section spacing="lg" background="surface" reveal>
         <Container>
@@ -100,7 +94,7 @@ export default function PackagesPage() {
               >
                 {pkg.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge>Recommended</Badge>
+                    <Badge>Most Popular</Badge>
                   </div>
                 )}
 

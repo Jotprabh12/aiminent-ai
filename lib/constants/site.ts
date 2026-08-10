@@ -30,7 +30,8 @@ export const SITE = {
   ogImage: "/images/og-default.png",
 
   /** Provisional contact address — confirm before launch. */
-  contactEmail: "hello@aiminent.ai",
+  contactEmail: "team@aiminentai.com",
+  contactPhone: "+91 7888876239",
 
   /** Default SEO keywords (Chapter 10). Pages may extend these. */
   keywords: [
@@ -49,6 +50,7 @@ export const SOCIALS = {
   linkedin: "https://www.linkedin.com/company/aiminent-ai",
   github: "https://github.com/aiminent-ai",
   x: "https://x.com/aiminentai",
+  instagram: "https://www.instagram.com/aiminentai",
 } as const;
 
 export type Site = typeof SITE;

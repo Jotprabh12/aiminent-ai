@@ -75,7 +75,7 @@ export default function PrivacyPage() {
               </h2>
               <p className="mt-2">
                 You have the right to access, update, or delete your personal
-                data at any time. Contact us at hello@aiminent.ai to exercise
+                data at any time. Contact us at team@aiminentai.com to exercise
                 these rights.
               </p>
             </section>
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
               </h2>
               <p className="mt-2">
                 If you have questions about this Privacy Policy, please contact
-                us at hello@aiminent.ai.
+                us at team@aiminentai.com.
               </p>
             </section>
           </div>

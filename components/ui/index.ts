@@ -39,3 +39,19 @@ export type {
 } from "@/components/ui/accordion";
 export { CTABanner } from "@/components/ui/cta-banner";
 export type { CTABannerProps } from "@/components/ui/cta-banner";
+export { PageHero } from "@/components/ui/page-hero";
+export type { PageHeroProps } from "@/components/ui/page-hero";
+export { CalendlyInline } from "@/components/ui/calendly-inline";
+export {
+  BrandLogo,
+  BrandLogoStrip,
+  BRAND_LOGOS,
+  type BrandLogoProps,
+  type BrandLogoStripProps,
+  type BrandLogoKey,
+} from "@/components/ui/brand-logos";
+export { SocialIcon } from "@/components/ui/social-icons";
+export type {
+  SocialIconName,
+  SocialIconProps,
+} from "@/components/ui/social-icons";

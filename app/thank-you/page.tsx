@@ -3,7 +3,7 @@ import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/lib/constants";
-import { env } from "@/lib/config/env";
+import { getActiveBookingProvider } from "@/lib/integrations/booking";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 
@@ -19,6 +19,10 @@ export default async function ThankYouPage(props: {
 }) {
   const { source } = await props.searchParams;
   const isConsultation = source === "consultation";
+  const booking = getActiveBookingProvider();
+  const calendlyUrl = booking.handlesScheduling()
+    ? booking.getBookingUrl()
+    : null;
 
   return (
     <Section spacing="lg" background="base">
@@ -28,12 +32,12 @@ export default async function ThankYouPage(props: {
           <h1 className="text-h1 font-semibold text-foreground">Thank You!</h1>
           <p className="max-w-prose-w text-body text-text-secondary">
             {isConsultation
-              ? "Your consultation request has been received. We will contact you within 24 hours to confirm your slot."
-              : "We have received your request and will get back to you shortly."}
+              ? "Your consultation request has been received. Our team will contact you within 24 hours to confirm your slot."
+              : "We have received your request and our team will get back to you shortly."}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {isConsultation && env.NEXT_PUBLIC_CALENDLY_URL ? (
-              <Button href={env.NEXT_PUBLIC_CALENDLY_URL}>
+            {isConsultation && calendlyUrl ? (
+              <Button href={calendlyUrl} target="_blank">
                 Schedule with Calendly
               </Button>
             ) : (

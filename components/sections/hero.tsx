@@ -1,8 +1,10 @@
 import { type ReactNode } from "react";
+import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Reveal } from "@/components/animations";
+import { cn } from "@/lib/utils";
 
 export interface HeroSectionProps {
   eyebrow?: string;
@@ -11,6 +13,14 @@ export interface HeroSectionProps {
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
   highlights?: string[];
+  /** Premium background image behind the hero. */
+  backgroundImage?: string;
+  /** Alt text for the background image. */
+  backgroundImageAlt?: string;
+  /** Object-position for the background image. Default: "center". */
+  backgroundImagePosition?: string;
+  /** Extra content rendered below the CTAs (e.g. logo strip). */
+  footer?: ReactNode;
 }
 
 export function HeroSection({
@@ -20,9 +30,41 @@ export function HeroSection({
   primaryCta,
   secondaryCta,
   highlights,
+  backgroundImage,
+  backgroundImageAlt,
+  backgroundImagePosition = "center",
+  footer,
 }: HeroSectionProps) {
   return (
-    <Section id="hero" spacing="lg" background="base">
+    <Section
+      id="hero"
+      spacing="lg"
+      background="base"
+      className={cn(backgroundImage && "relative isolate overflow-hidden")}
+    >
+      {backgroundImage && (
+        <>
+          <Image
+            src={backgroundImage}
+            alt={backgroundImageAlt ?? ""}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectPosition: backgroundImagePosition }}
+            className="-z-20 object-cover"
+          />
+          {/* Dark overlay so typography stays perfectly readable */}
+          <div
+            className="absolute inset-0 -z-10 bg-background/75"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/55 to-background"
+            aria-hidden="true"
+          />
+        </>
+      )}
+
       <Container>
         <div className="flex flex-col items-center gap-6 text-center">
           {eyebrow && (
@@ -78,6 +120,7 @@ export function HeroSection({
               </div>
             </Reveal>
           )}
+          {footer && <Reveal delay={0.15}>{footer}</Reveal>}
         </div>
       </Container>
     </Section>

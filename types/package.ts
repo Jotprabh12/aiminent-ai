@@ -3,7 +3,8 @@ import type { Slug } from "@/types/common";
 
 /**
  * Package (productised offering) model — the premium solution cards on the
- * homepage and packages page (Spec §11). No pricing is stored (Spec §5).
+ * homepage and packages page (Spec §11). Pricing is deliberately coarse —
+ * only a starting point or "Contact us" — never detailed line items.
  */
 
 export interface Package {
@@ -17,9 +18,14 @@ export interface Package {
   outcome: string;
   /** Key automations included. */
   automations: string[];
+  /**
+   * Pricing line shown on the card.
+   * Allowed: "Starting from $X/month" | "Contact Us". No detailed pricing.
+   */
+  price: string;
   /** Lucide icon key (optional, not rendered in card). */
   icon?: string;
   cta?: CTA;
-  /** Highlight as the recommended / featured package. */
+  /** Highlight as the most popular / featured package. */
   featured?: boolean;
 }

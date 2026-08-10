@@ -1,9 +1,9 @@
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/page-hero";
 import { ROUTES } from "@/lib/constants";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
@@ -93,23 +93,16 @@ const solutions = [
 export default function SolutionsPage() {
   return (
     <>
-      <Section id="solutions-hero" spacing="lg" background="base">
-        <Container>
-          <div className="flex flex-col items-center gap-4 text-center">
-            <Badge>Solutions</Badge>
-            <h1 className="text-h1 font-semibold text-foreground">
-              AI-Powered Solutions for Your Business
-            </h1>
-            <p className="max-w-prose-w text-body text-text-secondary">
-              Choose from our suite of automation solutions or build something
-              custom with our team.
-            </p>
-            <Button href={ROUTES.bookConsultation}>
-              Book Free Consultation
-            </Button>
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        badge="Solutions"
+        title="AI-Powered Solutions for Your Business"
+        description="Choose from our suite of automation solutions or build something custom with our team."
+        image="/images/hero-solutions.jpg"
+        imageAlt="Analytics dashboard showing AI automation performance"
+        imagePosition="center 60%"
+      >
+        <Button href={ROUTES.bookConsultation}>Book Free Consultation</Button>
+      </PageHero>
 
       <Section spacing="lg" background="surface" reveal>
         <Container>

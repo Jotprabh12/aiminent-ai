@@ -4,6 +4,7 @@ import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/page-hero";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/constants";
 import type { Metadata } from "next";
@@ -102,23 +103,16 @@ const industries = [
 export default function IndustriesPage() {
   return (
     <>
-      <Section id="industries-hero" spacing="lg" background="base">
-        <Container>
-          <div className="flex flex-col items-center gap-4 text-center">
-            <Badge>Industries</Badge>
-            <h1 className="text-h1 font-semibold text-foreground">
-              Automation Built for Your Industry
-            </h1>
-            <p className="max-w-prose-w text-body text-text-secondary">
-              We help businesses across industries automate repetitive work and
-              focus on growth.
-            </p>
-            <Button href={ROUTES.bookConsultation}>
-              Book Free Consultation
-            </Button>
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        badge="Industries"
+        title="Automation Built for Your Industry"
+        description="We help businesses across industries automate repetitive work and focus on growth."
+        image="/images/hero-about.jpg"
+        imageAlt="Team collaborating on industry-specific automation"
+        imagePosition="center 45%"
+      >
+        <Button href={ROUTES.bookConsultation}>Book Free Consultation</Button>
+      </PageHero>
 
       <Section spacing="lg" background="surface" reveal>
         <Container>

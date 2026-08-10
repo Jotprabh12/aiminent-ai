@@ -21,7 +21,8 @@ export function organizationSchema(): JsonLd {
     url: SITE.url,
     description: SITE.description,
     email: SITE.contactEmail,
-    sameAs: [SOCIALS.linkedin, SOCIALS.github, SOCIALS.x],
+    telephone: SITE.contactPhone,
+    sameAs: [SOCIALS.linkedin, SOCIALS.github, SOCIALS.x, SOCIALS.instagram],
   };
 }
 

@@ -17,12 +17,22 @@ export {
 } from "@/components/sections/solutions-grid";
 export {
   WorkflowDemo,
-  type WorkflowStep,
+  type ImplementationPhase,
   type WorkflowDemoProps,
 } from "@/components/sections/workflow-demo";
 export { PackagesSection } from "@/components/sections/packages";
 export type { PackagesSectionProps } from "@/components/sections/packages";
 export { FAQSection } from "@/components/sections/faq";
 export type { FAQSectionProps } from "@/components/sections/faq";
+export { ProcessRoadmap } from "@/components/sections/process-roadmap";
+export type {
+  RoadmapStage,
+  ProcessRoadmapProps,
+} from "@/components/sections/process-roadmap";
+export { TechOutcomes } from "@/components/sections/tech-outcomes";
+export type {
+  TechOutcome,
+  TechOutcomesProps,
+} from "@/components/sections/tech-outcomes";
 export { CTABanner } from "@/components/ui/cta-banner";
 export type { CTABannerProps } from "@/components/ui/cta-banner";

@@ -39,7 +39,7 @@ export function PackagesSection({
               >
                 {pkg.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge>Recommended</Badge>
+                    <Badge>Most Popular</Badge>
                   </div>
                 )}
 
@@ -58,6 +58,12 @@ export function PackagesSection({
                 <p className="mt-3 text-sm text-text-secondary">
                   {pkg.problem}
                 </p>
+
+                <div className="mt-4 rounded-lg bg-primary/5 px-4 py-3">
+                  <p className="text-sm font-semibold text-primary">
+                    {pkg.price}
+                  </p>
+                </div>
 
                 <ul className="mt-4 space-y-2">
                   {pkg.automations.map((a) => (
@@ -83,9 +89,11 @@ export function PackagesSection({
                 </ul>
 
                 {pkg.cta && (
-                  <Button variant="outline" size="sm" href={pkg.cta.href}>
-                    {pkg.cta.label}
-                  </Button>
+                  <div className="mt-6">
+                    <Button variant="outline" size="sm" href={pkg.cta.href}>
+                      {pkg.cta.label}
+                    </Button>
+                  </div>
                 )}
               </Card>
             ))}
