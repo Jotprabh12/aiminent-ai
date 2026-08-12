@@ -24,7 +24,9 @@ const schema = z.object({
     .default("development"),
 
   // Public — safe to expose to the browser.
-  NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
+  // Production MUST set NEXT_PUBLIC_SITE_URL in Vercel environment variables.
+  // If not set, defaults to production URL to prevent localhost leaking.
+  NEXT_PUBLIC_SITE_URL: z.string().url().default("https://www.aiminentai.com"),
   NEXT_PUBLIC_CALENDLY_URL: z.string().url().optional(),
   NEXT_PUBLIC_GA_ID: z.string().optional(),
   NEXT_PUBLIC_META_PIXEL_ID: z.string().optional(),
